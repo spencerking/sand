@@ -30,6 +30,10 @@ fn main() {
 		parser::Actions::MOVE {line_num} => {
 		    println!("Move");
 		},
+		parser::Actions::INSERT {txt} => {
+		    println!("Insert");
+		    println!("{}", txt);
+		},
 	    }
 	}
     }
