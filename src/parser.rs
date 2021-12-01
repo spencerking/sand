@@ -18,10 +18,12 @@ pub fn parse(cmd_str: &String) -> Vec<Actions> {
 	    result.push(Actions::PRINT);
 	} else if c.is_numeric() {
 	    let mut line_num_str = c.to_string();
-	    if let Some(b) = iter.peek() {
+	    while let Some(b) = iter.peek() {
 		if b.is_numeric() {
 		    line_num_str = line_num_str + &b.to_string();
 		    iter.next();
+		} else {
+		    break;
 		}
 	    }
 	    let num = line_num_str.parse::<i64>().unwrap();
